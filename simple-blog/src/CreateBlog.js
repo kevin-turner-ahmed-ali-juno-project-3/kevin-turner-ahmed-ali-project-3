@@ -1,6 +1,6 @@
 import firebase from 'firebase';
 
-function CreateBlog() {
+function CreateBlog() { 
     return (
         <div>
 

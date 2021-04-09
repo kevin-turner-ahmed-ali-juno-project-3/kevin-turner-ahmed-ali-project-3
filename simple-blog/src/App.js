@@ -1,5 +1,6 @@
-import DisplayBlog from './DisplayBlog'
-import CreateBlog from './CreateBlog'
+import DisplayBlog from './DisplayBlog';
+import CreateBlog from './CreateBlog';
+import firebase from './firebase';
 
 function App() {
   return (
