@@ -17,37 +17,41 @@ function DisplayBlog() {
    
           //store the response from our database ( using .val() to format correctly)
           const data = response.val();
-          //iterate through the object, push each book name to the array
+          //iterate through the object, push each blog to the array
           for(let key in data) {
             newState.push({
               key: key,
               content: data[key]
             });
           }
-          //call the setBooks function to update our component's state to be the new value
+          //call the setBlog function to update our component's state to be the new value
           setBlog(newState);
         });
 
       }, [])
 
-    
     return (
-        <div> 
-            {/* allows object to load from firebase before attempting to render to page */}
-            {/* {blog[0] && <p>the name is: {blog[0].content.person} and the content is: {blog[0].content.writing}</p>} */}
+      <div> 
+      {/* allows object to load from firebase before attempting to render to page */}
+      {/* {blog[0] && <p>the name is: {blog[0].content.person} and the content is: {blog[0].content.writing}</  */}
             
-            {/* prints blog posts to page from firebase */}
-            {
-                blog.map((blogs, key) => {
-                    return (
-                        <ul>
-                            <li key={key}><p>{blogs.content.person}</p><p>{blogs.content.writing}</p></li>
-                        </ul>
-                    )
-                })
-            }
-
-        </div>
+      {/* prints blog posts to page from firebase */}
+      {
+        blog.map((blogs, key) => {
+          return (
+            <section className="blog-post" key={key}>
+              <div className="blog-content">
+                <h1>{blogs.content.title}</h1>
+                <p>{blogs.content.writing}</p>
+              </div>
+              <div className="name">
+                <h3>{blogs.content.person}</h3>
+              </div>
+            </section>
+          )
+        })
+      }
+      </div>
     )
 }
 
