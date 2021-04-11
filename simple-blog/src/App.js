@@ -1,7 +1,7 @@
 import DisplayBlog from "./DisplayBlog";
 import CreateBlog from "./CreateBlog";
 import firebase from "./firebase";
-import './App.css';
+import "./App.css";
 
 function App() {
   return (
