@@ -30,6 +30,11 @@ function DisplayBlog() {
 
       }, [])
 
+      const removeBlog = (key) => {
+        const dbRef = firebase.database().ref();
+        dbRef.child(key).remove();
+      }
+
     return (
       <div> 
       {/* allows object to load from firebase before attempting to render to page */}
@@ -47,10 +52,15 @@ function DisplayBlog() {
               <div className="name">
                 <h3>{blogs.content.person}</h3>
               </div>
+              <button onClick={ () => {
+                removeBlog(blogs.key)
+              }}>Delete</button>
             </section>
+            
           )
         })
       }
+      
       </div>
     )
 }
