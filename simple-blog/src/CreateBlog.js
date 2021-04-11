@@ -12,24 +12,23 @@ function CreateBlog() {
     const dbRef = firebase.database().ref();
     //create object containing person name, title, and content blog post as params
     dbRef.push({ person: name, writing: content, title: title });
-    setName('');
-    setContent('');
-    setTitle('');
+    setName("");
+    setContent("");
+    setTitle("");
   };
 
   return (
     <div>
-      <form action="submit">
-
-      <label htmlFor="title-input">Title</label>
-        <input 
-        type="text" 
-        name="title-input" 
-        id="title-input"
-        onChange={(e) => setTitle(e.target.value)}
-        value={title}
+      <form className="blog-input" action="submit">
+        <label htmlFor="title-input">Title</label>
+        <input
+          type="text"
+          name="title-input"
+          id="title-input"
+          onChange={(e) => setTitle(e.target.value)}
+          value={title}
         />
-        
+
         <label htmlFor="name-input">Name</label>
         <input
           type="text"
