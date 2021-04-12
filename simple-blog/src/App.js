@@ -5,12 +5,15 @@ import "./App.css";
 
 function App() {
   return (
-    <div className="wrapper">
-      <h1>Simple Blog</h1>
+    <div>
+      <h1 className="wrapper">Simple Blog</h1>
       <DisplayBlog />
 
       <CreateBlog />
+
+    <footer>Created at Juno College 2021</footer>
     </div>
+
   );
 }
 
