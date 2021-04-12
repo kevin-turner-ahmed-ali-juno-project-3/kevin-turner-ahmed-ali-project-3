@@ -28,22 +28,21 @@ function DisplayBlog() {
     });
   }, []);
 
+  //remove blog post
   const removeBlog = (key) => {
     const dbRef = firebase.database().ref();
     dbRef.child(key).remove();
   };
 
   return (
-    <div className="blog-container">
-      {/* allows object to load from firebase before attempting to render to page */}
-      {/* {blog[0] && <p>the name is: {blog[0].content.person} and the content is: {blog[0].content.writing}</  */}
+    <div className="blog-container wrapper">
 
-      {/* prints blog posts to page from firebase */}
+      {/* maps blog data into new array for displaying to page */}
       {blog.map((blogs, key) => {
         return (
           <section className="blog-post" key={key}>
             <div className="blog-content">
-              <h1>{blogs.content.title}</h1>
+              <h2>{blogs.content.title}</h2>
               <p>{blogs.content.writing}</p>
             </div>
             <div className="name">

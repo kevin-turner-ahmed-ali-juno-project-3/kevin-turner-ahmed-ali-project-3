@@ -18,7 +18,7 @@ function CreateBlog() {
   };
 
   return (
-    <div>
+    <div className="wrapper">
       <form className="blog-input" action="submit">
         <div className="blog-info">
           <div>
@@ -27,6 +27,7 @@ function CreateBlog() {
               type="text"
               name="title-input"
               id="title-input"
+              placeholder="give your post a title"
               onChange={(e) => setTitle(e.target.value)}
               value={title}
             />
@@ -39,6 +40,7 @@ function CreateBlog() {
               type="text"
               id="name-input"
               name="name-input"
+              placeholder="who are you?"
               onChange={(e) => setName(e.target.value)}
               value={name}
             />
@@ -47,7 +49,7 @@ function CreateBlog() {
 
         <label htmlFor="content-input">Content</label>
         <textarea
-          placeholder="write your blog here"
+          placeholder="Start writing!"
           id="content-input"
           name="content-input"
           onChange={(e) => setContent(e.target.value)}
