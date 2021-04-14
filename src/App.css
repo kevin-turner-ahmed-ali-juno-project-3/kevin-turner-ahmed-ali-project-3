@@ -64,7 +64,6 @@ h1 {
 }
 
 .blog-content {
-  height: 300px;
   overflow: auto;
 }
 
@@ -95,6 +94,27 @@ h1 {
 
 .blog-info label {
   margin-right: 5px;
+}
+
+.blog-comment {
+  border: 2px solid rgba(156, 153, 153, 0.658);
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
+.blog-comment h3 {
+  padding-left: 5px;
+  text-decoration: underline;
+}
+
+.blog-comment-item {
+  padding-left: 5px;
+  border-bottom: 2px solid rgba(156, 153, 153, 0.658);
+}
+
+.blog-comment-item:last-child {
+  padding-left: 5px;
+  border-bottom: none;
 }
 
 @media (max-width: 425px) {

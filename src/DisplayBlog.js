@@ -1,5 +1,6 @@
 import firebase from "./firebase";
 import { useState, useEffect } from "react";
+import Comments from "./Comments";
 
 function DisplayBlog() {
   const [blog, setBlog] = useState([]);
@@ -20,7 +21,8 @@ function DisplayBlog() {
       for (let key in data) {
         newState.push({
           key: key,
-          content: data[key],
+          ...data[key],
+          // comments: [],
         });
       }
       //call the setBlog function to update our component's state to be the new value
@@ -36,18 +38,33 @@ function DisplayBlog() {
 
   return (
     <div className="blog-container wrapper">
-
       {/* maps blog data into new array for displaying to page */}
       {blog.map((blogs, key) => {
+        const comments = blogs.comments && Object.values(blogs.comments);
+
         return (
           <section className="blog-post" key={key}>
             <div className="blog-content">
-              <h2>{blogs.content.title}</h2>
-              <p>{blogs.content.writing}</p>
+              <h2>{blogs.title}</h2>
+              <p>{blogs.writing}</p>
             </div>
+
             <div className="name">
-              <h3>{blogs.content.person}</h3>
+              <h3>Written by: {blogs.person}</h3>
             </div>
+
+            {comments && (
+              <div className="blog-comment">
+                <h3>Comments</h3>
+                {comments.map((i, k) => (
+                  <div className="blog-comment-item" key={k}>
+                    <p>{i}</p>
+                  </div>
+                ))}
+              </div>
+            )}
+
+            <Comments blog={blogs} />
             <button
               onClick={() => {
                 removeBlog(blogs.key);

@@ -11,7 +11,11 @@ function CreateBlog() {
 
     const dbRef = firebase.database().ref();
     //create object containing person name, title, and content blog post as params
-    dbRef.push({ person: name, writing: content, title: title });
+    dbRef.push({
+      person: name,
+      writing: content,
+      title: title,
+    });
     setName("");
     setContent("");
     setTitle("");
